@@ -343,23 +343,23 @@ function getStreamingData() {
             let currentSongEl = currentSongElement.replace(/&amp;/g, '&');
 
             // Formating characters to UTF-8
-            let song = data.currentSong.replace(/&apos;/g, '\'');
-            let currentSong = song.replace(/&amp;/g, '&');
+            let song = data.now_playing[title].replace(/&apos;/g, '\'');
+            let title = song.replace(/&amp;/g, '&');
 
-            let artist = data.currentArtist.replace(/&apos;/g, '\'');
-            let currentArtist = artist.replace(/&amp;/g, '&');
-            currentArtist = currentArtist.replace('  ', ' '); 
+            let artist = data.now_playing[artist].replace(/&apos;/g, '\'');
+            let artist = artist.replace(/&amp;/g, '&');
+            artist = artist.replace('  ', ' '); 
             
             // Change the title
-            document.title = currentSong + ' - ' + currentArtist + ' | ' + RADIO_NAME;
+            document.title = now_playing[title] + ' - ' + now_playing[artist] + ' | ' + RADIO_NAME;
 
-            if (currentSongEl.trim() !== currentSong.trim()) {
-                page.refreshCover(currentSong, currentArtist);
-                page.refreshCurrentSong(currentSong, currentArtist);
-                page.refreshLyric(currentSong, currentArtist);
+            if (currentSongEl.trim() !== now_playing[title].trim()) {
+                page.refreshCover(now_playing[title], now_playing[artist]);
+                page.refreshCurrentSong(now_playing[title], now_playing[artist]);
+                page.refreshLyric(now_playing[title], now_playing[artist]);
 
                 for (var i = 0; i < 2; i++) {
-                    page.refreshHistoric(data.songHistory[i], i);
+                    page.refreshHistoric(data.song_history[i], i);
                 }
             }
         } 
