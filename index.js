@@ -3,7 +3,6 @@ const URL_STREAMING = settings.url_streaming;
 const API_KEY = settings.api_key;
 const DEFAULT_COVER_ART = settings.default_cover_art;
 const API_URL = settings.api_url;
-const IDGEN = str;
 
 window.onload = function () {
     var page = new Page;
@@ -22,8 +21,6 @@ window.onload = function () {
     var coverArt = document.getElementsByClassName('cover-album')[0];
 
     coverArt.style.height = coverArt.offsetWidth + 'px';
-}
-
 }
 
 // DOM control
@@ -111,7 +108,7 @@ function Page() {
                 var data = JSON.parse(this.responseText);
                 var artworkUrl100 = (data.resultCount) ? data.results[0].artworkUrl100 : urlCoverArt;
 
-                // Se retornar algum dado, alterar a resoluÃ£o da imagem ou definir a padrÃ£o
+                // Se retornar algum dado, alterar a resoluão da imagem ou definir a padrão
                 urlCoverArt = (artworkUrl100 != urlCoverArt) ? artworkUrl100.replace('100x100bb', '512x512bb') : urlCoverArt;
                 var urlCoverArt96 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '96x96bb') : urlCoverArt;
                 var urlCoverArt128 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '128x128bb') : urlCoverArt;
