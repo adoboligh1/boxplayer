@@ -3,6 +3,7 @@ const URL_STREAMING = settings.url_streaming;
 const API_KEY = settings.api_key;
 const DEFAULT_COVER_ART = settings.default_cover_art;
 const API_URL = settings.api_url;
+const IDGEN = settings.idgen;
 
 window.onload = function () {
     var page = new Page;
@@ -368,7 +369,7 @@ function getStreamingData() {
     var d = new Date();
 
     // Requisition with timestamp to prevent cache on mobile devices
-    xhttp.open('GET', API_URL);
+    xhttp.open('GET', API_URL +?IDGEN);
     xhttp.send();
 }
 
